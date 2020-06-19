@@ -25,7 +25,7 @@
   <h3 align="center">Retail-Banking</h3>
 
   <p align="center">
-Retail-Banking is basic webapplication using flask. The Documentation is given with the code. You can use this for mini-project. 
+Retail-Banking is basic webapplication using flask. The Documentation is given with the code. You can use this for mini-project.
     <br />
     <a href="https://github.com/dhina016/Retail-Banking"><strong>Explore the docs »</strong></a>
     <br />
@@ -34,7 +34,7 @@ Retail-Banking is basic webapplication using flask. The Documentation is given w
     ·
     <a href="https://github.com/dhina016/Retail-Banking/issues">Request Feature</a>
     .
-    <a href="https://github.com/dhina016/Retail-Banking/issues">Instagram</a>
+    <a href="https://www.instagram.com/anintrovertinlove/">Instagram</a>
   </p>
 </p>
 
