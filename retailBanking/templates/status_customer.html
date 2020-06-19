@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block content %}
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+
+                                        <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>Customer ID</th>
+                                                    <th>Name</th>
+                                                    <th>Message</th>
+                                                    <th>Status</th>
+                                                    <th>Last Update</th>
+                                                    <th>Operation</th>
+                                                </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                {% for data in detail %}
+                                                  <tr>
+                                                    <td>{{ data.customerID }}</td>
+                                                    <td>{{ data.name }}</td>
+                                                    <td>{{ data.message }}</td>
+                                                    <td>
+                                                    {% if(data.isActive == 0) %}
+                                                    <span class="badge badge-success">Active</span>
+                                                    {% else %}
+                                                    <span class="badge badge-danger">Inactive</span>
+                                                    {% endif %}
+                                                    </td>
+                                                    <td>{{  (data.updateAt).strftime('%B %d %Y %I:%m:%S %p') }}</td>
+    
+                                                    <td> 
+                                                        <button type="button" class="btn btn-warning waves-effect waves-light" onclick="window.location=''"><i class="fas fa-redo-alt" onclick="return false;"></i></button> 
+                                                        <button type="button"  onclick="getdata( {{ data.customerID }} )"  class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#myModal1"><i class="fas fa-user-alt" onclick="return false;"></i></button> 
+                                                    </td>
+                                                </tr>
+                                                {%  endfor %}
+                                                </tbody>
+                                            </table>
+    
+                                        </div>
+                                    </div>
+                                </div> <!-- end col -->
+                            </div> <!-- end row -->
+
+
+
+                                                <!-- sample modal content -->
+                                                <div id="myModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title mt-0" id="myModalLabel">View Customer Detail</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <dl class="row mb-0">
+                                                                    <dt class="col-sm-4">Customer ID</dt>
+                                                                    <dd id="cid" class="col-sm-8"></dd>
+                                                                    <dt class="col-sm-4">SSN ID</dt>
+                                                                    <dd id="cssnid" class="col-sm-8"></dd>
+                                                                    <dt class="col-sm-4">Name</dt>
+                                                                    <dd id="cname" class="col-sm-8"></dd>
+                                                                    <dt class="col-sm-4">Age</dt>
+                                                                    <dd id="cage" class="col-sm-8"></dd>
+                                                                    <dt class="col-sm-4">State</dt>
+                                                                    <dd id="cstate" class="col-sm-8"></dd>
+                                                                    <dt class="col-sm-4">City</dt>
+                                                                    <dd id="ccity" class="col-sm-8"></dd>
+                                                                    <dt class="col-sm-4">Address</dt>
+                                                                    <dd id="caddress" class="col-sm-8"></dd>
+                                                                    <dt class="col-sm-4">Message</dt>
+                                                                    <dd id="cmessage" class="col-sm-8"></dd>
+                                                                    <dt class="col-sm-4">Status</dt>
+                                                                    <dd id="cstatus" class="col-sm-8"></dd>
+                                                                    <dt class="col-sm-4">Create At</dt>
+                                                                    <dd id="ccreate" class="col-sm-8"></dd>
+                                                                    <dt class="col-sm-4">Update At</dt>
+                                                                    <dd id="cupdate" class="col-sm-8"></dd>
+                                                                 </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
+                                                                <button type="button" class="btn btn-primary waves-effect waves-light">Save changes</button>
+                                                            </div>
+                                                        </div><!-- /.modal-content -->
+                                                    </div><!-- /.modal-dialog -->
+                                                </div><!-- /.modal -->
+
+                                                <!-- sample modal content -->
+                                                <div id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title mt-0" id="myModalLabel">Edit Customer Detail</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <dl class="row mb-0">
+
+                                                                 </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
+                                                                <button type="button" class="btn btn-primary waves-effect waves-light">Save changes</button>
+                                                            </div>
+                                                        </div><!-- /.modal-content -->
+                                                    </div><!-- /.modal-dialog -->
+                                                </div><!-- /.modal -->
+
+<script>
+    
+function getdata(id){
+    $.ajax({
+        type: "GET",
+        url: "getcustomerdetail",
+        dataType: "json",
+        data: { cid: id },
+        beforeSend: function() {},
+        success: (response) => {
+            $('#cid').text(response.customerID)
+            $('#cssnid').text(response.SSNID)
+            $('#cname').text(response.name)
+            $('#cage').text(response.age)
+            $('#cstate').text(response.state)
+            $('#ccity').text(response.city)
+            $('#caddress').text(response.address)
+            $('#cmessage').text(response.message)
+            if(response.isActive == 0){
+            $('#cstatus').text('Active')
+            } else {
+            $('#cstatus').text('Inactive')
+            }
+            $('#ccreate').text(response.createAt)
+            $('#cupdate').text(response.updateAt)
+        },
+        error: (error) => {
+            console.log(error)
+        },
+});
+}
+</script>
+
+
+
+{% endblock %}

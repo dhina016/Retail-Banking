@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>retailBanking</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo-sm.png') }}"/>
+
+        
+        <!-- DataTables -->
+        <link href="{{ url_for( 'static', filename='libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css' )}}" rel="stylesheet" type="text/css" />
+        <link href="{{ url_for( 'static', filename='libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css' )}}" rel="stylesheet" type="text/css" />
+
+        <!-- Responsive datatable examples -->
+        <link href="{{ url_for( 'static', filename='libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css' )}}" rel="stylesheet" type="text/css" />    
+        
+         <!-- Bootstrap Css -->
+         <link href="{{ url_for( 'static', filename='css/bootstrap.min.css' )}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+         <!-- Icons Css -->
+         <link href="{{ url_for( 'static', filename='css/icons.min.css' )}}" rel="stylesheet" type="text/css" />
+         
+        <link href="{{ url_for( 'static', filename='css/app.min.css' )}}" id="app-style" rel="stylesheet" type="text/css" />
+        
+        
+        <script src="{{ url_for('static', filename='libs/jquery/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='libs/metismenu/metisMenu.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='libs/simplebar/simplebar.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='libs/node-waves/waves.min.js') }}"></script>
+
+    </head>
+
+
+    <body data-topbar="dark" data-layout="horizontal">
+
+        <!-- Begin page -->
+        <div id="layout-wrapper">
+
+            <header id="page-topbar">
+                <div class="navbar-header">
+                    <div class="d-flex">
+                        <!-- LOGO -->
+                        <div class="navbar-brand-box">
+                            <a href="index-2.html" class="logo logo-light">
+                              <span class="logo-sm">
+                                <img
+                                  src="{{ url_for('static', filename='images/logo-sm.png') }}"
+                                  alt=""
+                                  height="30"
+                                />
+                              </span>
+                              <span class="logo-lg">
+                                <img
+                                  src="{{ url_for('static', filename='images/logo-light.png') }}"
+                                  alt=""
+                                  height="30"
+                                />
+                              </span>
+                            </a>
+                          </div>
+                    </div>
+
+                    <div class="d-flex">
+
+                        <div class="dropdown d-none d-lg-inline-block">
+                            <button type="button" class="btn header-item noti-icon waves-effect" data-toggle="fullscreen">
+                                <i class="mdi mdi-fullscreen"></i>
+                            </button>
+                        </div>
+
+
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="rounded-circle header-profile-user" src="{{ url_for('static', filename='images/avatar.png') }}"
+                                    alt="Header Avatar">
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <!-- item-->
+                                <a class="dropdown-item text-danger" href="{{ url_for('custlogout') }}"><i
+                                        class="bx bx-power-off font-size-17 align-middle mr-1 text-danger"></i> Logout</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </header>
+
+            <div class="main-content">
+                <div class="page-content">
+                    <div class="container-fluid">
+                        <div class="alert alert-success bg-success text-white border-0" role="alert"><strong>Welcome {{ session.user }}</strong> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Balance</h4>
+                                        <dl class="row mb-0">
+                                            <dt class="col-sm-3">Current Balance</dt>
+                                            <dd class="col-sm-9"> {% if(c != None) %} ₹{{ c.AccountBalance }} {% else %} No current account {% endif %} </dd>
+                                            <dt class="col-sm-3">Saving Balance</dt>
+                                            <dd class="col-sm-9">{% if( s != None) %} ₹{{ s.AccountBalance }} {% else %} No Savings account {% endif %}</dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">All Transactions</h4>
+                                <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                    <thead>
+                                        <tr>
+                                            <th>Account ID</th>
+                                            <th>Type</th>
+                                            <th>Amount</th>
+                                            <th>Date</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        </thead>
+
+                                        <tbody>
+                                        {% for i in detail %}
+                                          <tr>
+                                            <td>{{ i.accid }}</td>
+                                            <td>{{ i.type }}</td>
+                                            <td>{{ i.amount }}</td>
+                                            <td>{{ i.date }}</td>
+                                            <td>{{ i.description }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div> <!-- end col -->
+                    </div> <!-- end row -->
+                    </div> <!-- end row -->
+                    </div> <!-- end row -->
+
+
+ 
+                
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="copyright">
+                                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | RetailBanking 
+                                     </p></div>
+                        </div>
+                    </div>
+                </footer>
+
+            </div>
+            <!-- end main content-->
+
+        </div>
+        <!-- END layout-wrapper -->
+
+
+        <!-- Right bar overlay-->
+        <div class="rightbar-overlay"></div>
+
+
+        <script src="{{ url_for('static', filename='libs/parsleyjs/parsley.min.js') }}"></script>
+
+        <script src="{{ url_for('static', filename='js/pages/moment.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/pages/form-validation.init.js') }}"></script>
+
+
+        <!-- Peity chart-->
+        <script src="{{ url_for('static', filename='libs/peity/jquery.peity.min.js') }}"></script>
+
+        <script src="{{ url_for('static', filename='js/pages/dashboard.init.js') }}"></script>
+
+         <!-- Required datatable js -->
+         <script src="{{ url_for('static', filename='libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+         <script src="{{ url_for('static', filename='libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+         <!-- Buttons examples -->
+         <script src="{{ url_for('static', filename='libs/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+         <script src="{{ url_for('static', filename='libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}"></script>
+         <script src="{{ url_for('static', filename='libs/jszip/jszip.min.js') }}"></script>
+         <script src="{{ url_for('static', filename='libs/pdfmake/build/pdfmake.min.js') }}"></script>
+         <script src="{{ url_for('static', filename='libs/pdfmake/build/vfs_fonts.js') }}"></script>
+         <script src="{{ url_for('static', filename='libs/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+         <script src="{{ url_for('static', filename='libs/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
+         <script src="{{ url_for('static', filename='libs/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
+         <!-- Responsive examples -->
+         <script src="{{ url_for('static', filename='libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
+         <script src="{{ url_for('static', filename='libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}"></script>
+ 
+         <!-- Datatable init js -->
+         <script src="{{ url_for('static', filename='js/pages/datatables.init.js') }}"></script>
+         <script src="{{ url_for('static', filename='libs/sweetalert2/sweetalert2.min.js') }}"></script>
+ 
+         <!-- Sweet alert init js-->
+         <script src="{{ url_for('static', filename='js/pages/sweet-alerts.init.js') }}"></script>
+
+        <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+    </body>
+</html>

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if(detail) %}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                {% from "includes/_formhelper.html" import render_field %}
+                <form class="custom-validation" name="editcustomerdetail" action="" method="post" novalidate>
+                   {{  form.hidden_tag() }}
+                    <div data-repeater-list="outer-group" class="outer">
+                        <div data-repeater-item class="outer">
+                            <dl class="row mb-0">
+                                <dt class="col-sm-2">Customer ID</dt>
+                                <dd class="col-sm-10">{{ detail.customerID }}</dd>
+                                <dt class="col-sm-2">SSN ID</dt>
+                                <dd class="col-sm-10">{{ detail.SSNID }}</dd>
+                            </dl>
+
+                            <div class="form-group">
+                                {{ render_field(form.name, placeholder="Enter Name", class_="form-control", value= detail.name ) }}
+                             </div>
+                            <div class="form-group">
+                                {{ render_field(form.age, placeholder="Enter Age", class_="form-control", value= detail.age) }}
+                            </div>
+                            <div class="form-group">
+                                {{ render_field(form.address, placeholder="Enter Address", class_="form-control", value= detail.address )}}
+                            </div>
+                            <div class="form-group">
+                                {{ render_field(form.message, placeholder="Enter Message", class_="form-control", value= detail.message )}}
+                            </div>
+                            <div class="form-group">
+                                        <label for="formcust_address">Status</label>
+                                        <select class="form-control" name="active" id="active" required>
+                                            <option value="0">Active</option>
+                                            <option value="1">Inactive</option>
+                                        </select>
+                                
+                                        <!-- <input type="checkbox" id="status" name="status" switch="none" {% if(detail.isActive == 0) %}  checked="" {% else %}  {% endif %}>
+                                        <label for="status" data-on-label="" data-off-label=""></label> -->
+                            </div>
+                            <input type="hidden" name="id" id ="id" value="{{ detail.customerID }}">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% else %}
+<div class="alert alert-danger bg-danger text-white border-0" role="alert"><strong>Customer ID</strong> is not found <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> </div>
+
+
+
+{% endif %}
+  
+
+{% endblock %}

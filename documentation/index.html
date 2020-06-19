@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Docs | retailBanking</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">    
+    <link rel="shortcut icon" href="favicon.ico">  
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- FontAwesome JS -->
+    <script defer src="assets/fontawesome/js/all.js"></script>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
+    <!-- Plugins CSS -->    
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+    <link rel="stylesheet" href="assets/plugins/lightbox/dist/ekko-lightbox.css">
+    <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css">
+
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+    
+</head> 
+
+<body class="body-pink">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <div class="branding">
+                    <h1 class="logo">
+                        <a href="index.html">
+                            <span aria-hidden="true" class="icon_documents_alt icon"></span>
+                            <span class="text-highlight">retail</span><span class="text-bold">Banking</span>
+                        </a>
+                    </h1>
+                </div><!--//branding-->
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><span aria-hidden="true" class="icon icon_puzzle_alt"></span> Documentation</h1>
+                </div><!--//doc-header-->
+                <div class="doc-body row" >
+                    <div class="doc-content col-md-9 col-12 order-1">
+                        <div class="content-inner">
+                            <section id="intro" class="doc-section">
+                                <h2 class="section-title">Introduction</h2>
+                                <div class="section-block">
+                                    <p>Welcome! This is retailBanking project. This project is developed by using flask and MySQL. Working of this retail Banking is given below</p>
+                                </div>
+                            </section><!--//doc-section-->
+                            
+                            <section id="install" class="doc-section">
+                                <h2 class="section-title">Installation</h2>
+                                <div class="section-block">
+                                        <div class="section-block">
+                                            <p>1. Download and extract the project</p>
+                                            <p>2. I'm using xampp, so you can also use it and Create the database</p>
+                                            <p>3. Upload or Import retaulbank.sql in your database.</p>
+                                            <p>4. Download python 3.x and install on your PC. My pc is 64bit so i installed Python3(64bit). Set environmental variable for both python and pip or else you get command not found.</p>
+                                            <p>5. I've used virtual environment. It's not necessary, but using virtual environment is preferable</p>
+                                            <p></p><pre class=" language-markup"><code class=" language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">D:\flask\retailbank> cd venv/Scripts/activate</span></span></code></pre><p></p>
+                                            <p>Virtual environment is activated now</p>
+                                            <p></p><pre class=" language-markup"><code class=" language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">(venv) D:\flask\retailbank></span></span></code></pre><p></p>
+                                            <p>For deactivate virtual environment</p>
+                                            <p></p><pre class=" language-markup"><code class=" language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">D:\flask\newsland> cd venv/Scripts/deactivate</span></span></code></pre><p></p>
+                                            <p>If no virtual environment found</p>
+                                            <p></p><pre class=" language-markup"><code class=" language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">D:\flask\retailbank> python -m venv venv</span></span></code></pre><p></p>
+                                            <p>6. Install All Requirments</p>
+                                            <p></p><pre class=" language-markup"><code class=" language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">D:\flask\newsland> pip install -r requirements.txt</span></span></code></pre><p></p>
+                                            <p>7. To run</p>
+                                            <p></p><pre class=" language-markup"><code class=" language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">D:\flask\newsland>python app.py</span></span></code></pre><p></p>
+                                            <p>or</p>
+                                            <p></p><pre class=" language-markup"><code class=" language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">D:\flask\newsland>flask run</span></span></code></pre><p></p>
+                                            <p>8. To login http://127.0.0.1:5000/login</p>
+                                            <p></p><pre class=" language-markup"><code class=" language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">Admin credential => username : admin, password: !1Qqwerty </span></span></code></pre><p></p>
+                                        </div>
+                                    </div>
+                            </section><!--//doc-section-->
+                            
+                            <section id="components" class="doc-section">
+                                <h2 class="section-title">Components</h2>
+                                <div id="home" class="section-block">
+                                    <h3 class="block-title">Homepage</h3>
+                                    <p>This is Homepage. You can check what we are doing..</p>
+                                    <div class="row">
+                                        <div class="col-md-12 col-12">
+                                            <h6>UI</h6>
+                                            <div class="screenshot-holder">
+                                                <a href="assets/pic/home.PNG" data-title="Homepage" data-toggle="lightbox"><img class="img-fluid" src="assets/pic/home.PNG" alt="screenshot" /></a>
+                                                <a class="mask" href="assets/pic/home.PNG" data-title="Project Overview" data-toggle="lightbox"><i class="icon fa fa-search-plus"></i></a>
+                                            </div> 
+                                        </div>
+                                    </div><!--//row-->
+                                </div><!--//section-block-->
+
+                                
+                                <div id="login" class="section-block">
+                                    <h3 class="block-title">Login</h3>
+                                    <div class="row">
+                                        <div class="col-md-6 col-12">
+                                            <h6>Primary Login</h6>
+                                            <p>This login for Admin, Executive, Cashier</p>
+                                            <div class="screenshot-holder">
+                                                <a href="assets/pic/log.PNG" data-title="Primary Login" data-toggle="lightbox"><img class="img-fluid" src="assets/pic/log.PNG" alt="screenshot" /></a>
+                                                <a class="mask" href="assets/pic/log.PNG" data-title="Discussion Overview" data-toggle="lightbox"><i class="icon fa fa-search-plus"></i></a>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <h6>Customer Login</h6>
+                                            <p>Login as customer to check out balance and get all report</p>
+                                            <div class="screenshot-holder">
+                                                <a href="assets/pic/clog.PNG" data-title="Customer Login" data-toggle="lightbox"><img class="img-fluid" src="assets/pic/clog.PNG" alt="screenshot" /></a>
+                                                <a class="mask" href="assets/pic/clog.PNG" data-title="Discussion Details" data-toggle="lightbox"><i class="icon fa fa-search-plus"></i></a>
+                                            </div> 
+                                        </div>
+                                    </div><!--//row-->  
+                                </div><!--//section-block-->
+                                <div id="modules" class="section-block">
+                                    <h3 class="block-title">Modules</h3>
+                                    <div class="row">
+                                        <div class="col-md-12 col-12">
+                                            <h6>Primary Dashboard</h6>
+                                            <p>This Dashboard for Admin, Executive, Cashier</p>
+                                            <div class="screenshot-holder">
+                                                <a href="assets/pic/dash.PNG" data-title="Primary Dashboard" data-toggle="lightbox"><img class="img-fluid" src="assets/pic/dash.PNG" alt="screenshot" /></a>
+                                                <a class="mask" href="assets/pic/dash.PNG" data-title="Discussion Overview" data-toggle="lightbox"><i class="icon fa fa-search-plus"></i></a>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <h6>Customer Dashboard</h6>
+                                            <div class="screenshot-holder">
+                                                <a href="assets/pic/custdash.PNG" data-title="Customer Dashboard" data-toggle="lightbox"><img class="img-fluid" src="assets/pic/custdash.PNG" alt="screenshot" /></a>
+                                                <a class="mask" href="assets/pic/custdash.PNG" data-title="Discussion Details" data-toggle="lightbox"><i class="icon fa fa-search-plus"></i></a>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <h6>Create Customer</h6>
+                                            <div class="screenshot-holder">
+                                                <a href="assets/pic/createcus.PNG" data-title="Create Customer" data-toggle="lightbox"><img class="img-fluid" src="assets/pic/createcus.PNG" alt="screenshot" /></a>
+                                                <a class="mask" href="assets/pic/createcus.PNG" data-title="Discussion Details" data-toggle="lightbox"><i class="icon fa fa-search-plus"></i></a>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <h6>Manage Customer</h6>
+                                            <div class="screenshot-holder">
+                                                <a href="assets/pic/managecus.PNG" data-title="Manage Customer" data-toggle="lightbox"><img class="img-fluid" src="assets/pic/managecus.PNG" alt="screenshot" /></a>
+                                                <a class="mask" href="assets/pic/managecus.PNG" data-title="Discussion Overview" data-toggle="lightbox"><i class="icon fa fa-search-plus"></i></a>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <h6>Update Customer</h6>
+                                            <div class="screenshot-holder">
+                                                <a href="assets/pic/updatecust.PNG" data-title="Update Customer" data-toggle="lightbox"><img class="img-fluid" src="assets/pic/updatecust.PNG" alt="screenshot" /></a>
+                                                <a class="mask" href="assets/pic/updatecust.PNG" data-title="Discussion Details" data-toggle="lightbox"><i class="icon fa fa-search-plus"></i></a>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <h6>Customer Status</h6>
+                                            <div class="screenshot-holder">
+                                                <a href="assets/pic/cusstatus.PNG" data-title="Customer Status" data-toggle="lightbox"><img class="img-fluid" src="assets/pic/cusstatus.PNG" alt="screenshot" /></a>
+                                                <a class="mask" href="assets/pic/cusstatus.PNG" data-title="Discussion Overview" data-toggle="lightbox"><i class="icon fa fa-search-plus"></i></a>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <h6>Create Account</h6>
+                                            <div class="screenshot-holder">
+                                                <a href="assets/pic/createacc.PNG" data-title="Create Account" data-toggle="lightbox"><img class="img-fluid" src="assets/pic/createacc.PNG" alt="screenshot" /></a>
+                                                <a class="mask" href="assets/pic/createacc.PNG" data-title="Discussion Details" data-toggle="lightbox"><i class="icon fa fa-search-plus"></i></a>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <h6>Manage Account</h6>
+                                            <div class="screenshot-holder">
+                                                <a href="assets/pic/manageacc.PNG" data-title="Manage Account" data-toggle="lightbox"><img class="img-fluid" src="assets/pic/manageacc.PNG" alt="screenshot" /></a>
+                                                <a class="mask" href="assets/pic/manageacc.PNG" data-title="Discussion Overview" data-toggle="lightbox"><i class="icon fa fa-search-plus"></i></a>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <h6>Account Status</h6>
+                                            <p>Login as customer to check out balance and get all report</p>
+                                            <div class="screenshot-holder">
+                                                <a href="assets/pic/accstatus.PNG" data-title="Account Status" data-toggle="lightbox"><img class="img-fluid" src="assets/pic/accstatus.PNG" alt="screenshot" /></a>
+                                                <a class="mask" href="assets/pic/accstatus.PNG" data-title="Discussion Details" data-toggle="lightbox"><i class="icon fa fa-search-plus"></i></a>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <h6>Withdraw or Deposit</h6>
+                                            <div class="screenshot-holder">
+                                                <a href="assets/pic/witdep.PNG" data-title="Withdraw or Deposit" data-toggle="lightbox"><img class="img-fluid" src="assets/pic/witdep.PNG" alt="screenshot" /></a>
+                                                <a class="mask" href="assets/pic/witdep.PNG" data-title="Discussion Overview" data-toggle="lightbox"><i class="icon fa fa-search-plus"></i></a>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <h6>Deposit</h6>
+                                            <div class="screenshot-holder">
+                                                <a href="assets/pic/deposit.PNG" data-title="Deposit" data-toggle="lightbox"><img class="img-fluid" src="assets/pic/deposit.PNG" alt="screenshot" /></a>
+                                                <a class="mask" href="assets/pic/deposit.PNG" data-title="Discussion Details" data-toggle="lightbox"><i class="icon fa fa-search-plus"></i></a>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <h6>Withdraw</h6>
+                                            <div class="screenshot-holder">
+                                                <a href="assets/pic/withdraw.PNG" data-title="Withdraw" data-toggle="lightbox"><img class="img-fluid" src="assets/pic/withdraw.PNG" alt="screenshot" /></a>
+                                                <a class="mask" href="assets/pic/withdraw.PNG" data-title="Discussion Overview" data-toggle="lightbox"><i class="icon fa fa-search-plus"></i></a>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <h6>Transfer</h6>
+                                            <div class="screenshot-holder">
+                                                <a href="assets/pic/transfer.PNG" data-title="Transfer" data-toggle="lightbox"><img class="img-fluid" src="assets/pic/transfer.PNG" alt="screenshot" /></a>
+                                                <a class="mask" href="assets/pic/transfer.PNG" data-title="Discussion Details" data-toggle="lightbox"><i class="icon fa fa-search-plus"></i></a>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <h6>Report - General</h6>
+                                            <div class="screenshot-holder">
+                                                <a href="assets/pic/general.PNG" data-title="Report - General" data-toggle="lightbox"><img class="img-fluid" src="assets/pic/general.PNG" alt="screenshot" /></a>
+                                                <a class="mask" href="assets/pic/general.PNG" data-title="Discussion Details" data-toggle="lightbox"><i class="icon fa fa-search-plus"></i></a>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <h6>Report - Specific</h6>
+                                            <div class="screenshot-holder">
+                                                <a href="assets/pic/specific.PNG" data-title="Report - Specific" data-toggle="lightbox"><img class="img-fluid" src="assets/pic/specific.PNG" alt="screenshot" /></a>
+                                                <a class="mask" href="assets/pic/specific.PNG" data-title="Discussion Details" data-toggle="lightbox"><i class="icon fa fa-search-plus"></i></a>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <h6>Create Executive</h6>
+                                            <div class="screenshot-holder">
+                                                <a href="assets/pic/exec.PNG" data-title="Create Executive" data-toggle="lightbox"><img class="img-fluid" src="assets/pic/exec.PNG" alt="screenshot" /></a>
+                                                <a class="mask" href="assets/pic/exec.PNG" data-title="Discussion Details" data-toggle="lightbox"><i class="icon fa fa-search-plus"></i></a>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <h6>Create User</h6>
+                                            <div class="screenshot-holder">
+                                                <a href="assets/pic/user.PNG" data-title="Create User" data-toggle="lightbox"><img class="img-fluid" src="assets/pic/user.PNG" alt="screenshot" /></a>
+                                                <a class="mask" href="assets/pic/user.PNG" data-title="Discussion Details" data-toggle="lightbox"><i class="icon fa fa-search-plus"></i></a>
+                                            </div> 
+                                        </div>
+                                        
+                                    </div><!--//row-->  
+                                </div><!--//section-block-->
+                            </section>
+                            
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+                    <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
+                        <div id="doc-nav" class="doc-nav">
+                            <nav id="doc-menu" class="nav doc-menu flex-column sticky">
+                                <a class="nav-link scrollto" href="#intro">Introduction</a>
+                                <a class="nav-link scrollto" href="#install">Installation</a>
+                                <a class="nav-link scrollto" href="#components">Components</a>
+                                    <nav class="doc-sub-menu nav flex-column">
+                                        <a class="nav-link scrollto" href="#login">Login</a>
+                                        <a class="nav-link scrollto" href="#modules">Modules</a>
+                                    </nav><!--//nav-->
+                            </nav><!--//doc-menu-->
+                        </div><!--//doc-nav-->
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->              
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->
+        
+        
+    </div><!--//page-wrapper-->
+    
+    <footer id="footer" class="footer text-center">
+        <div class="container">
+            <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+            <small class="copyright">Designed with <i class="fas fa-heart"></i> by retailBankking</small>
+            
+        </div><!--//container-->
+    </footer><!--//footer-->
+    
+     
+    <!-- Main Javascript -->          
+    <script type="text/javascript" src="assets/plugins/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
+    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>  
+    <script type="text/javascript" src="assets/plugins/lightbox/dist/ekko-lightbox.min.js"></script>      
+    <script type="text/javascript" src="assets/plugins/stickyfill/dist/stickyfill.min.js"></script>                                                              
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    
+</body>
+</html> 
+

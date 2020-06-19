@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div id="msg">
+                </div>
+                {% from "includes/_formhelper.html" import render_field %}
+                <form class="custom-validation" name="CreateExecutive" action="" method="post" novalidate>
+                    <div data-repeater-list="outer-group" class="outer">
+                        <div data-repeater-item class="outer">
+                            {{  form.hidden_tag() }}
+                             
+                            <div class="form-group">
+                                {{ render_field(form.username, placeholder="Enter UserName", class_="form-control") }}
+                            </div>
+
+                            <div class="form-group">
+                                {{ render_field(form.name, placeholder="Enter Full Name", class_="form-control") }}
+                            </div>
+
+                            <div class="form-group" id="accounttype">
+                                {{ render_field(form.address, placeholder="Enter Address", class_="form-control") }}                               
+                             </div>
+
+                             <div class="form-group">
+                                {{ render_field(form.phone, placeholder="Enter Mobile Number", class_="form-control") }}
+                            </div>
+
+                            <div class="form-group">
+                                <label for="formcust_state">Select User Access Level  &nbsp; *</label>
+                                <select name="userlevel"   class="form-control input-lg" required>
+                                    <option value="">Select User Access Level</option>
+                                    <option value="1">Customer Executive</option>
+                                    <option value="2">Cashier / Teller</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" id="accounttype">
+                                {{ render_field(form.password, placeholder="Enter Password", class_="form-control") }}                               
+                             </div> 
+ 
+                            <button type="submit"  class="btn btn-primary">Create Account</button> 
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

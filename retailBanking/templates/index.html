@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Retail Banking</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo-sm.png') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='./website/fonts/icomoon/style.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='./website/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./website/css/jquery-ui.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./website/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./website/css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./website/css/owl.theme.default.min.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='./website/css/jquery.fancybox.min.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='./website/css/bootstrap-datepicker.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='./website/fonts/flaticon/font/flaticon.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='./website/css/aos.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='./website/css/style.css') }}">
+    
+  </head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+  
+
+  <div id="overlayer"></div>
+  <div class="loader">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+   
+    
+    <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+
+      <div class="container">
+        <div class="row align-items-center">
+          
+          <div class="col-6 col-xl-2">
+            <h1 class="mb-0 site-logo"><a href="{{ url_for('home') }}" class="h2 mb-0"><span class="text-primary">RetailBanking</span> </a></h1>
+          </div>
+
+          <div class="col-12 col-md-10 d-none d-xl-block">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+
+              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                <li><a href="#home-section" class="nav-link">Home</a></li>
+                <li><a href="#about-retail" class="nav-link">RetailBank</a></li> 
+                <li><a href="#modules" class="nav-link">Modules</a></li>  
+                <li><a href="#custlogin" class="nav-link">Check Balance</a></li>  
+                <li><a href="#benefits" class="nav-link">Benefits</a></li>  
+                <li onclick="window.location='/login'"><a href="#" class="nav-link">Login</a></li>         
+              </ul>
+            </nav>
+          </div>
+
+
+          <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a></div>
+
+        </div>
+      </div>
+      
+    </header>
+
+  
+     
+    <div class="site-blocks-cover overlay" style="background-image: url('./static/website/images/hero_2.jpg')" data-aos="fade" id="home-section">
+
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+
+          <div class="col-md-10 mt-lg-5 text-center">
+            <div class="single-text owl-carousel">
+              <div class="slide">
+                <h1 class="text-uppercase" data-aos="fade-up">Banking Solutions</h1>
+                <p class="mb-5 desc"  data-aos="fade-up" data-aos-delay="100">All banking problems. We have the solution. Get experience of new banking facilities.</p>
+                <div data-aos="fade-up" data-aos-delay="100">
+                </div>
+              </div>
+
+              <div class="slide">
+                <h1 class="text-uppercase" data-aos="fade-up">Financing Solutions</h1>
+                <p class="mb-5 desc"  data-aos="fade-up" data-aos-delay="100">Need a loan, with optimized interests and return time. Go through our policies once.</p>
+              </div>
+
+              <div class="slide">
+                <h1 class="text-uppercase" data-aos="fade-up">Savings Accounts</h1>
+                <p class="mb-5 desc"  data-aos="fade-up" data-aos-delay="100">Now accessible in multiple devices. Your bank account in your hands. Because you have the right to get best.</p>
+              </div>
+
+            </div>
+          </div>
+            
+        </div>
+      </div>
+
+      <a href="#next" class="mouse smoothscroll">
+        <span class="mouse-icon">
+          <span class="mouse-wheel"></span>
+        </span>
+      </a>
+    </div>  
+    
+    <div class="site-section cta-big-image" id="about-retail">
+      <div class="container">
+        <div class="row mb-5 justify-content-center">
+          <div class="col-md-8 text-center">
+            <h2 class="section-title mb-3" data-aos="fade-up" data-aos-delay="">RetailBanking</h2>
+            <p class="lead" data-aos="fade-up" style="font-family: century gothic;"  data-aos-delay="100">A very customer friendly site with all bank features at doorstep or rather in one's own hands.
+              Experience the best way of banking </p>
+          </div>
+        </div>   
+        
+      </div>  
+    </div>
+   
+    
+
+    <section class="site-section border-bottom bg-light text-center" id="modules">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center" data-aos="fade">
+            <h2 class="section-title mb-3">Modules</h2>
+          </div>
+        </div>
+        <div class="row align-items-stretch">
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4">
+              <div class="unit-4-icon">
+                <img src="{{ url_for('static', filename='./website/images/flaticon-svg/svg/woman.svg') }}" class="img-fluid w-25 mb-4">
+              </div>
+              <div>
+                <h3>Give Details</h3>
+                <p>Give all your details and create your account</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="unit-4">
+              <div class="unit-4-icon">
+                <img src="{{ url_for('static', filename='./website/images/flaticon-svg/svg/login.svg') }}"   class="img-fluid w-25 mb-4">
+              </div>
+              <div>
+                <h3>Transaction</h3>
+                <p>Cashier can transfer, deposit, and withdraw amount from your account.</p>
+              </div>
+            </div>
+          </div>
+ 
+
+
+ 
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="unit-4">
+              <div class="unit-4-icon">
+                <img src="{{ url_for('static', filename='./website/images/flaticon-svg/svg/good.svg') }}"   class="img-fluid w-25 mb-4">
+              </div>
+              <div>
+                <h3>Check Balance</h3>
+                <p>Get all your transaction details and check your balance</p>  
+              </div>
+            </div>
+          </div>
+ 
+        </div>
+      </div>
+    </section>
+
+    <section class="site-section bg-light aos-init aos-animate" id="custlogin" data-aos="fade">
+      <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="alert alert-{{ category }} bg-{{ category }} text-white border-0" role="alert"><strong>{{ message }}</strong> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      <div class="row mb-5">
+      <div class="col-12 text-center">
+      <h2 class="section-title mb-3">Check Balance Here</h2>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-md-12 mb-5">
+      <form action="custlogin" method="post" class="p-5 bg-white">
+      <h2 class="h4 text-black mb-5">Customer Login</h2>
+      <div class="row form-group">
+      <div class="col-md-12">
+      <label class="text-black" for="email">Customer ID</label>
+      <input type="text" id="username" name="username" class="form-control" required>
+      </div>
+      </div>
+      <div class="row form-group">
+      <div class="col-md-12">
+      <label class="text-black" for="subject">Password</label>
+      <input type="password" id="password" name="password" class="form-control" required>
+      </div>
+      </div>
+      <div class="row form-group">
+      <div class="col-md-12">
+      <input type="submit" value="Login" class="btn btn-primary btn-md text-white">
+      </div>
+      </div>
+      </form>
+      </div>
+      </div>
+      </div>
+      </section> 
+
+
+    <section class="site-section" id="benefits">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center" data-aos="fade">
+            <h2 class="section-title mb-3">Benefits</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 mb-5" data-aos="fade-up" data-aos-delay="">
+            <figure >
+            <img src="{{ url_for('static', filename='./website/images/hero_1.jpg') }}"   class="img-fluid">
+            </figure>
+          </div>
+          <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="100">
+            
+
+            <div class="row">
+
+              
+              
+              <div class="col-12 mb-4" data-aos="fade-up" data-aos-delay="">
+                <div class="unit-4 d-flex">
+                  <div class="unit-4-icon mr-4 mb-3"><span class="text-primary flaticon-head"></span></div>
+                  <div>
+                    <h3>Support</h3>
+                    <p>We give the best service of support. Our team is available 24×7 to help you with your problem.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="unit-4 d-flex">
+                  <div class="unit-4-icon mr-4 mb-3"><span class="text-primary flaticon-smartphone"></span></div>
+                  <div>
+                    <h3>Banking Consulation </h3>
+                    <p>We provide best insurance policy for you. A policy affordable to all classes. Do read more.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     
+    <footer class="site-footer" style="padding: 5px !important;">
+      <div class="container">
+        <div class="row pt-5 mt-5 text-center">
+          <div class="col-md-12">
+              <p class="copyright"><small>
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | retailBanking 
+             </p>
+          </div>
+          
+        </div>
+      </div>
+    </footer>
+
+  </div> 
+
+  <script src="{{ url_for('static', filename='./website/js/jquery-3.3.1.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='./website/js/jquery-ui.js') }}"></script>
+  <script src="{{ url_for('static', filename='./website/js/popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='./website/js/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='./website/js/owl.carousel.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='./website/js/jquery.countdown.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='./website/js/jquery.easing.1.3.js') }}"></script>
+  <script src="{{ url_for('static', filename='./website/js/aos.js') }}"></script>
+  <script src="{{ url_for('static', filename='./website/js/jquery.fancybox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='./website/js/jquery.sticky.js') }}"></script>
+  <script src="{{ url_for('static', filename='./website/js/isotope.pkgd.min.js') }}"></script>
+
+  
+  <script src="{{ url_for('static', filename='./website/js/main.js') }}"></script>
+
+  
+  </body>
+</html>

@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Retail Banking</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo-sm.png') }}"/>
+
+
+        <!-- DataTables -->
+        <link href="{{ url_for( 'static', filename='libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css' )}}" rel="stylesheet" type="text/css" />
+        <link href="{{ url_for( 'static', filename='libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css' )}}" rel="stylesheet" type="text/css" />
+
+        <!-- Responsive datatable examples -->
+        <link href="{{ url_for( 'static', filename='libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css' )}}" rel="stylesheet" type="text/css" />    
+        
+        <!-- Sweet Alert-->
+        <link href="{{ url_for( 'static', filename='libs/sweetalert2/sweetalert2.min.css' )}}" rel="stylesheet" type="text/css" />
+
+        <!-- Bootstrap Css -->
+        <link href="{{ url_for( 'static', filename='css/bootstrap.min.css' )}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="{{ url_for( 'static', filename='css/icons.min.css' )}}" rel="stylesheet" type="text/css" />
+        
+        <link href="{{ url_for( 'static', filename='libs/select2/css/select2.min.css' )}}" rel="stylesheet" type="text/css" />
+        <link href="{{ url_for( 'static', filename='libs/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css' )}}" rel="stylesheet">
+        <link href="{{ url_for( 'static', filename='libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css' )}}" rel="stylesheet" />
+        <link href="{{ url_for( 'static', filename='libs/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css' )}}" rel="stylesheet">
+        
+        <!-- App Css-->
+        <link href="{{ url_for( 'static', filename='css/app.min.css' )}}" id="app-style" rel="stylesheet" type="text/css" />
+        
+    
+        <script src="{{ url_for('static', filename='libs/jquery/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='libs/metismenu/metisMenu.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='libs/simplebar/simplebar.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='libs/node-waves/waves.min.js') }}"></script>
+
+    
+  </head>
+
+  <body data-sidebar="dark">
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+
+      {% include 'includes/_header.html' %} 
+      
+      {% include 'includes/_navbar.html' %} 
+      
+      {% include 'includes/_title.html' %} 
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }} bg-{{ category }} text-white border-0" role="alert"><strong>{{ message }}</strong> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+      {% block content %} {% endblock %}
+
+      {% include 'includes/_footer.html' %}
+
+
+       <!-- JAVASCRIPT -->
+
+        <script src="{{ url_for('static', filename='libs/parsleyjs/parsley.min.js') }}"></script>
+
+        <script src="{{ url_for('static', filename='js/pages/moment.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/pages/form-validation.init.js') }}"></script>
+
+
+        <!-- Peity chart-->
+        <script src="{{ url_for('static', filename='libs/peity/jquery.peity.min.js') }}"></script>
+
+       <!--Morris Chart-->
+       <script src="{{ url_for('static', filename='libs/morris.js/morris.min.js') }}"></script>
+       <script src="{{ url_for('static', filename='libs/raphael/raphael.min.js') }}"></script>
+
+        <script src="{{ url_for('static', filename='js/pages/dashboard.init.js') }}"></script>
+
+         <!-- Required datatable js -->
+         <script src="{{ url_for('static', filename='libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+         <script src="{{ url_for('static', filename='libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+         <!-- Buttons examples -->
+         <script src="{{ url_for('static', filename='libs/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+         <script src="{{ url_for('static', filename='libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}"></script>
+         <script src="{{ url_for('static', filename='libs/jszip/jszip.min.js') }}"></script>
+         <script src="{{ url_for('static', filename='libs/pdfmake/build/pdfmake.min.js') }}"></script>
+         <script src="{{ url_for('static', filename='libs/pdfmake/build/vfs_fonts.js') }}"></script>
+         <script src="{{ url_for('static', filename='libs/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+         <script src="{{ url_for('static', filename='libs/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
+         <script src="{{ url_for('static', filename='libs/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
+         <!-- Responsive examples -->
+         <script src="{{ url_for('static', filename='libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
+         <script src="{{ url_for('static', filename='libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}"></script>
+ 
+         <script src="{{ url_for('static', filename='libs/select2/js/select2.min.js') }}"></script>
+         <script src="{{ url_for('static', filename='libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+         <script src="{{ url_for('static', filename='libs/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='libs/admin-resources/bootstrap-filestyle/bootstrap-filestyle.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='libs/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
+
+         
+         <script src="{{ url_for('static', filename='js/pages/form-advanced.init.js') }}"></script>
+
+
+         <!-- Datatable init js -->
+         <script src="{{ url_for('static', filename='js/pages/datatables.init.js') }}"></script>
+         <script src="{{ url_for('static', filename='libs/sweetalert2/sweetalert2.min.js') }}"></script>
+ 
+         <!-- Sweet alert init js-->
+         <script src="{{ url_for('static', filename='js/pages/sweet-alerts.init.js') }}"></script>
+
+        <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+       {%  if(title[0] == 'General Report') %}
+        <script>
+          function getdatedetail() {
+            $(document).ready(()=>{
+              from = $("#start").val();
+              to = $("#end").val();
+              field = $("#field").val();
+              if(from != '' && to != ''){
+              if(field == 'customer'){
+                $.ajax({
+                  type: "get",
+                  url: "reportdate",
+                  dataType: "json",
+                  data: {
+                    from: from,
+                    to: to,
+                    field: field
+                  },
+                  beforeSend: function () {},
+                  success: (response) => {
+                    if(response == null){
+                      $("#msg").html('<div class="alert alert-danger bg-danger text-white border-0" role="alert"><strong>No data found</strong> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> </div>');
+                      $("#datatable-buttons").dataTable().fnClearTable();
+                      $("#datatable-buttons").dataTable().fnDraw();;
+                    } else {
+                      $("#msg").html('');
+                      customer(response);
+                    }
+                  },
+                  error: (error) => {
+                    console.log(error);
+                  },
+                });
+              }
+              else if(field == 'account'){
+                $.ajax({
+                  type: "get",
+                  url: "reportdate",
+                  dataType: "json",
+                  data: {
+                    from: from,
+                    to: to,
+                    field: field
+                  },
+                  beforeSend: function () {},
+                  success: (response) => {
+                    if(response == null){
+                      $("#msg").html('<div class="alert alert-danger bg-danger text-white border-0" role="alert"><strong>No data found</strong> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> </div>');
+                      $("#datatable-buttons").dataTable().fnClearTable();
+                      $("#datatable-buttons").dataTable().fnDraw();;
+                    } else {
+                      $("#msg").html('');
+                      account(response);
+                    }
+                  },
+                  error: (error) => {
+                    console.log(error);
+                  },
+                });
+              }
+              else if(field == 'deposit'){
+                $.ajax({
+                  type: "get",
+                  url: "reportdate",
+                  dataType: "json",
+                  data: {
+                    from: from,
+                    to: to,
+                    field: field
+                  },
+                  beforeSend: function () {},
+                  success: (response) => {
+                    if(response == null){
+                      $("#msg").html('<div class="alert alert-danger bg-danger text-white border-0" role="alert"><strong>No data found</strong> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> </div>');
+                      $("#datatable-buttons").dataTable().fnClearTable();
+                      $("#datatable-buttons").dataTable().fnDraw();;
+                    } else {
+                      $("#msg").html('');
+                      deposit(response);
+                    }
+                  },
+                  error: (error) => {
+                    console.log(error);
+                  },
+                });
+              }
+              else if(field == 'withdraw'){
+                $.ajax({
+                  type: "get",
+                  url: "reportdate",
+                  dataType: "json",
+                  data: {
+                    from: from,
+                    to: to,
+                    field: field
+                  },
+                  beforeSend: function () {},
+                  success: (response) => {
+                    if(response == null){
+                      $("#msg").html('<div class="alert alert-danger bg-danger text-white border-0" role="alert"><strong>No data found</strong> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> </div>');
+                      $("#datatable-buttons").dataTable().fnClearTable();
+                      $("#datatable-buttons").dataTable().fnDraw();;
+                    } else {
+                      $("#msg").html('');
+                      withdraw(response);
+                    }
+                  },
+                  error: (error) => {
+                    console.log(error);
+                  },
+                });
+              }
+              else if(field == 'transfer'){
+                $.ajax({
+                  type: "get",
+                  url: "reportdate",
+                  dataType: "json",
+                  data: {
+                    from: from,
+                    to: to,
+                    field: field
+                  },
+                  beforeSend: function () {},
+                  success: (response) => {
+                    if(response == null){
+                      $("#msg").html('<div class="alert alert-danger bg-danger text-white border-0" role="alert"><strong>No data found</strong> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> </div>');
+                      $("#datatable-buttons").dataTable().fnClearTable();
+                      $("#datatable-buttons").dataTable().fnDraw();;
+                    } else {
+                      $("#msg").html('');
+                      transfer(response);
+                    }
+                  },
+                  error: (error) => {
+                    console.log(error);
+                  },
+                });
+              }
+            } else{
+              $("#msg").html('<div class="alert alert-danger bg-danger text-white border-0" role="alert"><strong>Date field is empty</strong> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> </div>');
+              $("#datatable-buttons").dataTable().fnClearTable();
+              $("#datatable-buttons").dataTable().fnDraw();
+            }
+            });
+        
+            }
+          
+            function customer(response) {
+              var dummy = [];
+              var column = [];
+              $.each(response, function (key, value) {
+                dummy.push(value.customerID);
+                dummy.push(value.SSNID);
+                dummy.push(value.name);
+                dummy.push(value.age);
+                dummy.push(value.state);
+                dummy.push(value.city);
+                dummy.push(value.message);
+                column.push(dummy);
+                dummy = [];
+              });
+          
+              var dataObject = {
+                columns: [
+                  {
+                    title: "Customer ID",
+                  },
+                  {
+                    title: "SSNID",
+                  },
+                  {
+                    title: "Name",
+                  },
+                  {
+                    title: "Age",
+                  },
+                  {
+                    title: "State",
+                  },
+                  {
+                    title: "City",
+                  },
+                  {
+                    title: "Message",
+                  },
+                ],
+                data: column,
+              };
+              var columns = [];
+              $("#datatable-buttons").dataTable().fnDestroy();
+              $("#datatable-buttons").DataTable().destroy();
+              $("#datatable-buttons").empty();
+              $("#datatable-buttons").DataTable({
+                stateSave: true,
+                dom: 'Bfrtip',
+                lengthChange: !1,
+                buttons: ["copy", "excel", "pdf", "colvis"],
+                data: dataObject.data,
+                columns: dataObject.columns,
+              });
+            }
+        
+            function account(response) {
+              var dummy = [];
+              var column = [];
+              $.each(response, function (key, value) {
+                dummy.push(value.customerID);
+                dummy.push(value.accountID);
+                if(value.accountType == 'S'){ dummy.push('Savings'); } else { dummy.push('Current'); }
+                dummy.push(value.AccountBalance);
+                dummy.push(value.status);
+                dummy.push(value.message);
+                column.push(dummy);
+                dummy = [];
+              });
+          
+              var dataObject = {
+                columns: [
+                  {
+                    title: "Customer ID",
+                  },
+                  {
+                    title: "Account ID",
+                  },
+                  {
+                    title: "Account Type",
+                  },
+                  {
+                    title: "Balance",
+                  },
+                  {
+                    title: "Status",
+                  },
+                  {
+                    title: "Message",
+                  },
+                ],
+                data: column,
+              };
+              var columns = [];
+              $("#datatable-buttons").dataTable().fnDestroy();
+              $("#datatable-buttons").DataTable().destroy();
+              $("#datatable-buttons").empty();
+              $("#datatable-buttons").DataTable({
+                stateSave: true,
+                dom: 'Bfrtip',
+                lengthChange: !1,
+                buttons: ["copy", "excel", "pdf", "colvis"],
+                data: dataObject.data,
+                columns: dataObject.columns,
+              });
+            }
+        
+            function deposit(response) {
+              var dummy = [];
+              var column = [];
+              $.each(response, function (key, value) {
+                dummy.push(value.id);
+                dummy.push(value.customerID);
+                dummy.push(value.accountID);
+                if(value.accountType == 'S'){ dummy.push('Savings'); } else { dummy.push('Current'); }
+                dummy.push(value.amount);
+                dummy.push(moment(value.date).format("MMMM Do YYYY"));
+                column.push(dummy);
+                dummy = [];
+              });
+          
+              var dataObject = {
+                columns: [
+                  {
+                    title: "Deposit ID",
+                  },
+                  {
+                    title: "Customer ID",
+                  },
+                  {
+                    title: "Account ID",
+                  },
+                  {
+                    title: "Account Type",
+                  },
+                  {
+                    title: "Amount",
+                  },
+                  {
+                    title: "Date",
+                  },
+                ],
+                data: column,
+              };
+              var columns = [];
+              $("#datatable-buttons").dataTable().fnDestroy();
+              $("#datatable-buttons").DataTable().destroy();
+              $("#datatable-buttons").empty();
+              $("#datatable-buttons").DataTable({
+                stateSave: true,
+                dom: 'Bfrtip',
+                lengthChange: !1,
+                buttons: ["copy", "excel", "pdf", "colvis"],
+                data: dataObject.data,
+                columns: dataObject.columns,
+              });
+            }
+        
+            function withdraw(response) {
+              var dummy = [];
+              var column = [];
+              $.each(response, function (key, value) {
+                dummy.push(value.id);
+                dummy.push(value.customerID);
+                dummy.push(value.accountID);
+                if(value.accountType == 'S'){ dummy.push('Savings'); } else { dummy.push('Current'); }
+                dummy.push(value.amount);
+                dummy.push(moment(value.date).format("MMMM Do YYYY"));
+                column.push(dummy);
+                dummy = [];
+              });
+          
+              var dataObject = {
+                columns: [
+                  {
+                    title: "Withdraw ID",
+                  },
+                  {
+                    title: "Customer ID",
+                  },
+                  {
+                    title: "Account ID",
+                  },
+                  {
+                    title: "Account Type",
+                  },
+                  {
+                    title: "Amount",
+                  },
+                  {
+                    title: "Date",
+                  },
+                ],
+                data: column,
+              };
+              var columns = [];
+              $("#datatable-buttons").dataTable().fnDestroy();
+              $("#datatable-buttons").DataTable().destroy();
+              $("#datatable-buttons").empty();
+              $("#datatable-buttons").DataTable({
+                stateSave: true,
+                dom: 'Bfrtip',
+                lengthChange: !1,
+                buttons: ["copy", "excel", "pdf", "colvis"],
+                data: dataObject.data,
+                columns: dataObject.columns,
+              });
+            }
+        
+            function transfer(response) {
+              var dummy = [];
+              var column = [];
+              $.each(response, function (key, value) {
+                dummy.push(value.id);
+                dummy.push(value.customerID);
+                dummy.push('Rs.'+value.amount);
+                if(value.sourceAccType == 'S'){ dummy.push(value.sourceaccountid+'(Savings)'); } else { dummy.push(value.sourceaccountid+'(Current)'); }
+                if(value.targetAccType == 'S'){ dummy.push(value.targetaccountid+'(Savings)'); } else { dummy.push(value.targetaccountid+'(Current)'); }
+                dummy.push(moment(value.date).format("MMMM Do YYYY"));
+                column.push(dummy);
+                dummy = [];
+              });
+          
+              var dataObject = {
+                columns: [
+                  {
+                    title: "Transfer ID",
+                  },
+                  {
+                    title: "Customer ID",
+                  },
+                  {
+                    title: "Amount",
+                  },
+                  {
+                    title: "Source Account",
+                  },
+                  {
+                    title: "Target Account",
+                  },
+                  {
+                    title: "Date",
+                  },
+                ],
+                data: column,
+              };
+              var columns = [];
+              $("#datatable-buttons").dataTable().fnDestroy();
+              $("#datatable-buttons").DataTable().destroy();
+              $("#datatable-buttons").empty();
+              $("#datatable-buttons").DataTable({
+                stateSave: true,
+                dom: 'Bfrtip',
+                lengthChange: !1,
+                buttons: ["copy", "excel", "pdf", "colvis"],
+                data: dataObject.data,
+                columns: dataObject.columns,
+              });
+            }
+        
+        </script>
+        {% endif %}
+{% if(title[0] == 'Specific Report') %}
+        <script>
+          function getall() {
+            $(document).ready(()=>{
+              from = $("#start").val();
+              to = $("#end").val();
+              id = $("#id").val();
+              if(from != '' && to != ''){
+
+                $.ajax({
+                  type: "get",
+                  url: "singlereportdate",
+                  dataType: "json",
+                  data: {
+                    from: from,
+                    to: to,
+                    id: id,
+                  },
+                  beforeSend: function () {
+                    $.ajax({ 
+                      type: "get",
+                      url: "singlereportlast", 
+                      dataType: "json",
+                      data: { from: from, to: to, id: id },
+                      beforeSend: function () {},
+                      success: (response) => {
+                          text = ''; 
+                          if(response[0] == null){ text += 'No deposits. ' } else { text += 'Rs.'+response[0].amount+' from Account id '+response[0].accid+'('+response[0].type+')'+' at '+moment(response[0].date).format("MMMM Do YYYY")+' is Deposited. '}
+                          if(response[1] == null){ text += '\nNo Withdraw. ' } else { text += '\nRs.'+response[1].amount+' from Account id '+response[1].accid+'('+response[1].type+')'+' at '+moment(response[1].date).format("MMMM Do YYYY")+' is Withdrawn. '}
+                          if(response[2] == null){ text += '\nNo Transfer. ' } else { text += '\nRs.'+response[2].amount+' from Account id '+response[2].accid+'('+response[2].type+')'+' at '+moment(response[2].date).format("MMMM Do YYYY")+' is Transfered. '}
+                          $("#msg4").html('<div class="alert alert-success bg-success text-white border-0" role="alert"><strong>'+text+'</strong> </div>');
+                          $("#msg").html('');
+                        },
+                        error: (error) => { console.log(error); }, });
+                  },
+                  success: (response) => {
+                    if(response.length == 0){
+                      $("#msg3").html('<div class="alert alert-danger bg-danger text-white border-0" role="alert"><strong>No data found</strong> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> </div>');
+                      $("#datatable-buttons").dataTable().fnClearTable();
+                      $("#datatable-buttons").dataTable().fnDraw();;
+                    } else {
+                      $("#msg3").html('');
+                      datatab(response);
+                    }
+                  },
+                  error: (error) => {
+                    console.log(error);
+                  },
+                });
+
+                } else{
+              $("#msg").html('<div class="alert alert-danger bg-danger text-white border-0" role="alert"><strong>Date field is empty</strong> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> </div>');
+              $("#msg3").html('');
+              $("#msg4").html('');
+              $("#datatable-buttons").dataTable().fnClearTable();
+              $("#datatable-buttons").dataTable().fnDraw();
+            }
+            });
+        
+            }
+          
+            function datatab(response) {
+              var dummy = [];
+              var column = [];
+              $.each(response, function (key, value) {
+                dummy.push(value.accid);
+                dummy.push(value.amount);
+                dummy.push(moment(value.date).format("MMMM Do YYYY"));
+                dummy.push(value.description);
+                dummy.push(value.type);
+                column.push(dummy);
+                dummy = [];
+              });
+          
+              var dataObject = {
+                columns: [
+                  {
+                    title: "Account ID",
+                  },
+                  {
+                    title: "Amount",
+                  },
+                  {
+                    title: "Date",
+                  },
+                  {
+                    title: "Description",
+                  },
+                  {
+                    title: "Type",
+                  },
+                ],
+                data: column,
+              };
+              var columns = [];
+              $("#datatable-buttons").dataTable().fnDestroy();
+              $("#datatable-buttons").DataTable().destroy();
+              $("#datatable-buttons").empty();
+              $("#datatable-buttons").DataTable({
+                stateSave: true,
+                dom: 'Bfrtip',
+                lengthChange: !1,
+                buttons: ["copy", "excel", "pdf", "colvis"],
+                data: dataObject.data,
+                columns: dataObject.columns,
+              });
+            }
+      
+        </script>
+        {% endif %}
+
+{% if(title[0] == 'Dashboard') %}      
+<script>
+
+  !(function (e) {
+      "use strict";
+      function a() {}
+        (a.prototype.createDonutChart = function (e, a, r) {
+          Morris.Donut({ element: e, data: a, resize: !0, colors: r });
+        }),
+        (a.prototype.createStackedChart = function (e, a, r, t, i, o) {
+          Morris.Bar({
+            element: e,
+            data: a,
+            xkey: r,
+            ykeys: t,
+            stacked: !0,
+            labels: i,
+            hideHover: "auto",
+            barSizeRatio: 0.4,
+            resize: !0,
+            gridLineColor: "rgba(108, 120, 151, 0.1)",
+            barColors: o,
+          });
+        }),
+        (a.prototype.init = function () {
+          this.createDonutChart(
+        "morris-donut-example",
+        [
+          { label: "{{ detail[0].t }}", value: "{{ detail[0].total }}" },
+          { label: "{{ detail[1].t }}", value: "{{ detail[1].total }}" },
+          { label: "{{ detail[2].t }}", value: "{{ detail[2].total }}" },
+        ],
+        ["#00ff00", "#3c4ccf", "#02a499"]
+      );
+        }),
+        (e.MorrisCharts = new a()),
+        (e.MorrisCharts.Constructor = a);
+    })(window.jQuery),
+      (function () {
+        "use strict";
+        window.jQuery.MorrisCharts.init();
+      })();
+
+</script>
+{% endif %}
+
+    </body>
+
+</html>

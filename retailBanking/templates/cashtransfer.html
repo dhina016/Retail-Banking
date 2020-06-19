@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div id="msg">
+                </div>
+                {% from "includes/_formhelper.html" import render_field %}
+                <form class="custom-validation" name="CashTransfer" action="" method="post" novalidate>
+                    <div data-repeater-list="outer-group" class="outer">
+                        <div data-repeater-item class="outer">
+                            {{  form.hidden_tag() }}
+   
+                            <div class="form-group">
+                                <label for="formcust_state">Select Source Customer ID  &nbsp; *</label>
+                                <select name="CustomerID" id="cid" class="form-control input-lg" required>
+                                    <option value="">Select customerID</option>
+                                    {% for id in customerIDList %}
+                                    <option value={{ id.customerID }}>({{ id.customerID }}) - {{ id.name }}</option>
+                                    {% endfor %}
+                                   </select>
+                            </div>
+                            <div class="form-group" id="source">
+                                
+                            </div>
+                            
+                            <div class="form-group" id="destination">
+
+                            </div>
+                            
+                             <div class="form-group">
+                                {{ render_field(form.TransferAmount, placeholder="Enter TransferAmount", class_="form-control") }}
+                            </div> 
+                            <div id="sub">
+                            </div> 
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(() =>{
+    
+        $(document).on('change', '#cid', function(){
+            $.ajax({
+                type: "GET",
+                url: "getaccountdetail",
+                dataType: "json",
+                data: { cid: $(this).children("option:selected").val() },
+                beforeSend: function() {},
+                success: (response) => {
+                   if(response.total == 2){
+                        $("#source").html('<label for="formcust_state">Select Source Account Type &nbsp; *</label><select name="SourceAccountType" id="SourceAccountType" class="form-control input-lg" required><option value="">Select Account Type</option><option value="S">Savings</option><option value="C">Current</option></select>  ');
+                        $("#msg").html('');
+                    } else {
+                        $("#source").html('');
+                        $("#destination").html('');
+                        $("#sub").html('');
+                        $("#msg").html('<div class="alert alert-danger" role="alert"><strong>'+response.total+'</strong> Account Found, 2 accounts required</div>');
+                   }
+                },
+                error: (error) => {
+                    console.log(error)
+                },
+        });        
+        });
+
+        $(document).on('change', '#source', function(){
+            $.ajax({
+                type: "GET",
+                url: "selectaccountdetail",
+                dataType: "json",
+                data: { 
+                    cid: $('#cid').children("option:selected").val(),
+                    type: $('#source option:selected').val()
+            },
+                beforeSend: function() {},
+                success: (response) => {
+                   if(response == null ){ 
+                       $("#source").html('');
+                       $("#destination").html('');
+                       $("#sub").html('');
+                       $("#msg").html('<div class="alert alert-danger" role="alert"><strong>Same </strong> Type of account only found </div>');
+                    } else if(response.accountType == 'S') {
+                        $("#destination").html('<label for="formcust_state">Select Destination Account Type &nbsp; *</label><select name="TargetAccountType" id="TargetAccountType" class="form-control input-lg" required><option value="">Select Account Type</option><option value="C">Current</option></select>  ');
+                        $("#TransferAmount").attr("min",1);
+                        $("#TransferAmount").attr("max", response.AccountBalance);
+                        $("#TransferAmount").attr("data-parsley-error-message", "Your Balance is ₹"+response.AccountBalance+", Insufficient Balance");
+                        $("#sub").html('<button type="submit"  class="btn btn-primary">Transfer Amount</button>');
+                        $("#msg").html('');
+                   } else if(response.accountType == 'C') {
+                    $("#destination").html('<label for="formcust_state">Select Destination Account Type &nbsp; *</label><select name="TargetAccountType" id="TargetAccountType" class="form-control input-lg" required><option value="">Select Account Type</option><option value="S">Savings</option></select>  ');
+                    $("#TransferAmount").attr("min",1);
+                    $("#TransferAmount").attr("max", response.AccountBalance);
+                    $("#TransferAmount").attr("data-parsley-error-message", "Your Balance is ₹"+response.AccountBalance+", Insufficient Balance");
+                    $("#sub").html('<button type="submit"  class="btn btn-primary">Transfer Amount</button>');
+                    $("#msg").html('');
+               }
+                },
+                error: (error) => {
+                    console.log(error)
+                },
+        }); 
+        });
+
+    });
+</script>
+
+{% endblock %}
+

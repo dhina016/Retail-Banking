@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if session['userlevel'] == 0 or session['userlevel'] == 1 %}
+<div class="row">
+    <div class="col-xl-3 col-sm-3">
+        <div class="card mini-stat bg-primary text-white">
+            <div class="card-body">
+                <div class="mb-4">
+                    <h5 class="font-size-16 text-uppercase mt-0 text-white-50">Active Account</h5>
+                    <h4 class="font-weight-medium font-size-24">{{ detail[3].total }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-sm-3">
+        <div class="card mini-stat bg-warning text-white">
+            <div class="card-body">
+                <div class="mb-4">
+                    <h5 class="font-size-16 text-uppercase mt-0 text-white-50">Inactive Account</h5>
+                    <h4 class="font-weight-medium font-size-24">{{ detail[4].total }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-sm-3">
+        <div class="card mini-stat bg-success text-white">
+            <div class="card-body">
+                <div class="mb-4">
+                    <h5 class="font-size-16 text-uppercase mt-0 text-white-50">Active Customer</h5>
+                    <h4 class="font-weight-medium font-size-24">{{ detail[5].total }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-sm-3">
+        <div class="card mini-stat bg-danger text-white">
+            <div class="card-body">
+                <div class="mb-4">
+                    <h5 class="font-size-16 text-uppercase mt-0 text-white-50">Inctive Customer</h5>
+                    <h4 class="font-weight-medium font-size-24">{{ detail[6].total }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+       {% endif %} 
+{% if session['userlevel'] == 0 or session['userlevel'] == 2 %}
+<div class="row">
+        
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+
+                <h4 class="card-title mb-4">Transaction Detail</h4>
+
+
+                <div class="row justify-content-center">
+                    <div class="col-sm-4">
+                        <div class="text-center">
+                            <h5 class="mb-0 font-size-20">{{ detail[0].total }}</h5>
+                        <p class="text-muted">{{ detail[0].t }}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="text-center">
+                            <h5 class="mb-0 font-size-20">{{ detail[1].total }}</h5>
+                            <p class="text-muted">{{ detail[1].t }}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="text-center">
+                            <h5 class="mb-0 font-size-20">{{ detail[2].total }}</h5>
+                        <p class="text-muted">{{ detail[2].t }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="morris-donut-example" class="morris-charts morris-chart-height" dir="ltr"></div>
+
+            </div>
+        </div>
+    </div> <!-- end col -->
+</div> <!-- end row -->
+{% endif %}
+{% endblock %}

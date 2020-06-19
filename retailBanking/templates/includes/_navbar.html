@@ -1,0 +1,91 @@
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="vertical-menu">
+
+                <div data-simplebar class="h-100">
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+                        <!-- Left Menu Start -->
+                        <ul class="metismenu list-unstyled" id="side-menu">
+                            <li class="menu-title">Users and Accounts</li>
+
+                            <li>
+                                <a href="{{  url_for('dashboard')}}" class="waves-effect">
+                                    <i class="ti-home"></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            {% if session['userlevel'] == 0 or session['userlevel'] == 1 %}
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="fas fa-users"></i>
+                                    <span>Customer</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="{{  url_for('createcustomer')}}">Create Customer</a></li>
+                                    <li><a href="{{  url_for('updatecustomerdetails')}}">Manage Customer</a></li>
+                                    <li><a href="{{  url_for('customerstatus')}}">Customer Status</a></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="fas fa-stream"></i>
+                                    <span>Account</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="{{  url_for('createaccount')}}">Create Account</a></li>
+                                    <li><a href="{{  url_for('updateaccountdetails')}}">Manage Account</a></li>
+                                    <li><a href="{{  url_for('accountstatus')}}">Status Account</a></li>
+                               </ul>
+                            </li>
+                            {% endif %}
+
+                            {% if session['userlevel'] == 0 or session['userlevel'] == 2 %}
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="fas fa-exchange-alt"></i>
+                                    <span>Transaction</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="{{  url_for('withdrawmoney')}}">Withdraw and Deposit</a></li>
+                                    <li><a href="{{  url_for('cashtransfer')}}">Transfer</a></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="fas fa-book"></i>
+                                    <span>Report</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="{{  url_for('report')}}">General</a></li>
+                                    <li><a href="{{  url_for('singlereport')}}">Specific</a></li>
+                                </ul>
+                            </li>
+                            {% endif %}
+
+                            {% if session['userlevel'] == 0 %}
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="fas fa-user-ninja"></i>
+                                    <span>Users</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="{{  url_for('createexecutive')}}">Create Executive</a></li>
+                                    <li><a href="{{  url_for('usercreate')}}">Create User</a></li>
+                                </ul>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <!-- Sidebar -->
+                </div>
+            </div>
+            <!-- Left Sidebar End -->
+
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
