@@ -225,7 +225,7 @@ Retail-Banking is a webapp. This Retail-Banking is very simple to use. Images ar
 <!-- TEAM -->
 ## Team
 
-We've used template for designing front end. Special thanks to my team!!
+We created this project for TCS Case Study. Special thanks to my team!!
 1. Vivek - https://github.com/vivekmp06
 2. Ananya - https://github.com/ananyasarolitaya
 3. Gokul - https://github.com/gokulrv4399
