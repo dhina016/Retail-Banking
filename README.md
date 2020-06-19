@@ -143,7 +143,7 @@ D:\flask\Retail-Banking>flask run
 ```
 9. Admin Login.
 ```sh
-url : http://127.0.0.1:5000/
+url : http://127.0.0.1:5000/login
 Username => admin,
 Password => !1Qqwerty,
 
