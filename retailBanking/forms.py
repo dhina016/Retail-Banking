@@ -62,3 +62,5 @@ class CustomerAccount(FlaskForm):
     password     = PasswordField("Password", [ validators.DataRequired(message="Password is Required"), validators.Length(message='Password should be and 5 characters.',
                           min=5),validators.Regexp(message=' Password should contain 5 characters including one special character, one upper case, one numeric.',
                           regex=r'^(?=.*[A-Z])(?=.*\d)(?=.*[\W\_])[A-Za-z\d\W\_]{5,}$') ] )
+
+#Developed by Socalled
