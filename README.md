@@ -217,9 +217,11 @@ Retail-Banking is a webapp. This Retail-Banking is very simple to use. Images ar
 <!-- TEAM -->
 ## Team
 
+We've used template for designing front end. Special thanks to my team!!
 Vivek - https://github.com/vivekmp06
 Ananya - https://github.com/ananyasarolitaya
 Gokul - https://github.com/gokulrv4399
+Alankrita
 
 <!-- ROADMAP -->
 ## Roadmap
