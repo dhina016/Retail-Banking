@@ -25,7 +25,7 @@
   <h3 align="center">Retail-Banking</h3>
 
   <p align="center">
-Retail-Banking is basic webapplication using flask. This is my first flask app. So, it may contains errors and its a simple news feed website. The guest can see the news only. After registration you can able to post news and edit your news. Then having admin login. Admin can access to post, edit, pin the news feed. Its very simple and basic concept. You can use this source to understand the working flask and jinja code. 
+Retail-Banking is basic webapplication using flask. The Documentation is given with the code. You can use this for mini-project. 
     <br />
     <a href="https://github.com/dhina016/Retail-Banking"><strong>Explore the docs »</strong></a>
     <br />
@@ -33,6 +33,8 @@ Retail-Banking is basic webapplication using flask. This is my first flask app. 
     <a href="https://github.com/dhina016/Retail-Banking/issues">Report Bug</a>
     ·
     <a href="https://github.com/dhina016/Retail-Banking/issues">Request Feature</a>
+    .
+    <a href="https://github.com/dhina016/Retail-Banking/issues">Instagram</a>
   </p>
 </p>
 
